@@ -22,7 +22,7 @@ jobs:
       - name: run_go_file
         run: ./main        
   build_windows:
-    name: build
+    name: build_windows
     runs-on: windows-latest
     steps:
       - name: checkout
@@ -36,7 +36,7 @@ jobs:
       - name: run_go_file
         run: .\main.exe
   build_macos:
-    name: build
+    name: build_macos
     runs-on: macos-latest
     steps:
       - name: checkout
@@ -50,7 +50,7 @@ jobs:
       - name: run_go_file
         run: ./main
   build_crossplatform:
-    name: build
+    name: build_crossplatform
     runs-on: ubuntu-latest
     needs: [build_ubuntu, build_windows, build_macos]
     steps:
