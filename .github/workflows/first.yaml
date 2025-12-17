@@ -1,0 +1,31 @@
+name: first
+
+on: [push, pull_request]
+
+jobs:
+  build:
+    name: build
+    runs-on: ubuntu-latest
+    steps:
+      - name: checkout
+        uses: actions/checkout@v4
+      - name: setup-node
+        uses: actions/setup-node@v4
+      - name: install dependencies
+        run: npm install
+      - name: build
+        run: npm run build
+      - name: test
+        run: |
+          npm run test
+          npm run build
+  
+  SecurityScan:
+    name: SecurityScan
+    runs-on: windows-latest
+    steps:
+      - name: sonarscan
+        run: sonarqube
+
+  Deployment:
+    name: Deployment 
