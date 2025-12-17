@@ -26,6 +26,3 @@ jobs:
     steps:
       - name: sonarscan
         run: sonarqube
-
-  Deployment:
-    name: Deployment 
